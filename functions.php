@@ -19,3 +19,28 @@ function abort($statusCode) {
     view($statusCode);
     exit;
 }
+
+/**
+ * @throws Exception
+ */
+function loadEnv($path) {
+    if (!file_exists($path)) {
+        throw new Exception("Arquivo .env não encontrado em $path");
+    }
+
+    $lines = file($path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+
+    foreach ($lines as $line) {
+        if (strpos(trim($line), '#') === 0) continue;
+
+        // Split using "="
+        [$name, $value] = array_map('trim', explode('=', $line, 2));
+
+        // Remove quotes (single or double) from the value
+        $value = trim($value, '"\'');
+
+        // Set the environment variable for getenv() and $_ENV
+        putenv("$name=$value");
+        $_ENV[$name] = $value;
+    }
+}
