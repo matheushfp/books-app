@@ -21,11 +21,11 @@ function abort($statusCode) {
 }
 
 /**
- * @throws Exception
+ * @throws RuntimeException
  */
 function loadEnv($path) {
     if (!file_exists($path)) {
-        throw new Exception("Arquivo .env não encontrado em $path");
+        throw new RuntimeException(".env file not found in: $path");
     }
 
     $lines = file($path, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);

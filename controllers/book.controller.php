@@ -1,9 +1,15 @@
 <?php
-require 'data.php';
 
 $id = $_REQUEST['id'];
 
-$filtered = array_filter($books, fn($book) => $book['id'] == $id);
-$book = array_pop($filtered);
+$conn = Database::getInstance()->getConnection();
+
+$query= $conn->prepare("SELECT * FROM books where id = :id");
+$query->bindParam(':id', $id, PDO::PARAM_INT);
+
+$query->setFetchMode(PDO::FETCH_CLASS, Book::class);
+$query->execute();
+
+$book = $query->fetch();
 
 view('book', ['book' => $book]);
