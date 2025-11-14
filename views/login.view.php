@@ -1,5 +1,5 @@
 <div class="mt-6">
-    <div class="border border-zinc-700 rounded p-4 max-w-md">
+    <div class="border border-zinc-700 rounded p-4 max-w-md mb-4">
         <h1 class="text-xl font-bold">Login</h1>
         <form class="mt-8">
             <div class="flex flex-col gap-2 max-w-md">
@@ -28,4 +28,5 @@
             </button>
         </form>
     </div>
+    <a href="/sign-up" class="ml-1 hover:underline">Don't have an account? Sign up here</a>
 </div>
