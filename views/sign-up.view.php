@@ -5,7 +5,7 @@
             <div class="flex flex-col gap-2 max-w-md">
                 <label for="name" class="ml-1">Name</label>
                 <input
-                    type="text"
+                    type="text" required
                     name="name"
                     id="name"
                     placeholder="Your name"
@@ -15,7 +15,7 @@
 
                 <label for="email" class="ml-1">E-mail</label>
                 <input
-                    type="text"
+                    type="email" required
                     name="email"
                     id="email"
                     placeholder="Your e-mail"
@@ -25,7 +25,7 @@
 
                 <label for="password" class="ml-1">Password</label>
                 <input
-                    type="password"
+                    type="password" required
                     name="password"
                     id="password"
                     placeholder="Your Password"
@@ -35,7 +35,7 @@
 
                 <label for="password_confirmation" class="ml-1">Confirm your Password</label>
                 <input
-                    type="password"
+                    type="password" required
                     name="password_confirmation"
                     id="password_confirmation"
                     placeholder="Your Password"

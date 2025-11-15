@@ -67,6 +67,20 @@ class Validator
         }
     }
 
+    private function unique($field, $value, $table): void
+    {
+        if (strlen($value) === 0) return;
+
+        $conn = Database::getInstance()->getConnection();
+        $stmt = $conn->prepare("SELECT * FROM $table WHERE $field = :value");
+        $stmt->execute(['value' => $value]);
+        $result = $stmt->fetchAll();
+
+        if ($result) {
+            $this->errors[] = "$field already exists.";
+        }
+    }
+
     public function fails(): bool
     {
         $_SESSION['errors'] = $this->errors;

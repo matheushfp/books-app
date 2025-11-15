@@ -15,7 +15,14 @@
                 <li><a href="/my-books" class="hover:underline">My Books</a></li>
             </ul>
             <ul class="flex">
-                <li><a href="/login" class="hover:underline">Login</a></li>
+                <?php if (empty($_SESSION['auth'])): ?>
+                    <li><a href="/login" class="hover:underline">Login</a></li>
+                <?php else: ?>
+                    <li class="flex flex-col">
+                        <span class="font-semibold"><?= $_SESSION['auth']->name ?? '' ?></span>
+                        <a href="/logout" class="hover:underline text-xs -mb-2 flex items-center justify-center">Logout</a>
+                    </li>
+                <?php endif; ?>
             </ul>
         </nav>
     </header>

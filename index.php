@@ -1,9 +1,12 @@
 <?php
 
+require 'models/Book.php';
+require 'models/User.php';
+
 session_start();
 
 require 'functions.php';
-require 'models/Book.php';
+require 'utils/Validator.php';
 
 try {
     loadEnv(__DIR__ . '/.env');
