@@ -44,3 +44,11 @@ function loadEnv($path) {
         $_ENV[$name] = $value;
     }
 }
+
+function auth() {
+    if (empty($_SESSION['auth'])) {
+        return null;
+    }
+
+    return $_SESSION['auth'];
+}
