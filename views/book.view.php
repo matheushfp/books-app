@@ -1,3 +1,11 @@
+<?php
+    $avgRating = count($reviews) > 0
+        ? array_reduce($reviews, fn($acc, $review) => $acc + $review->rating, 0) / count($reviews)
+        : 0;
+
+    $displayStars = str_repeat("⭐", floor($avgRating));
+?>
+
 <div class="p-2 rounded-md bg-zinc-800 border-2 border-zinc-900">
     <div class="flex">
         <img src="#" alt="Image" class="w-1/3" />
@@ -6,7 +14,11 @@
                 <?=$book->title?>
             </a>
             <p class="text-sm"><?=$book->author?></p>
-            <p class="text-xs">⭐⭐⭐⭐⭐ Rating</p>
+            <?php if ($displayStars > 0): ?>
+                <p class="text-xs"><?=$displayStars . ' Rating (' . count($reviews) . ' reviews)' ?></p>
+            <?php else: ?>
+                <p class="text-xs">No Reviews yet</p>
+            <?php endif; ?>
         </div>
     </div>
     <p class="text-sm mt-2"><?=$book->description?></p>
@@ -14,7 +26,14 @@
 
 <h2 class="font-semibold text-xl">Reviews</h2>
 <div class="grid grid-cols-4 gap-4">
-    <div class="col-span-3">List Here</div>
+    <div class="col-span-3 gap-4">
+        <?php foreach ($reviews as $review): ?>
+            <div class="border border-zinc-700 rounded p-4">
+                <?=$review->reviewText?>
+                <?= str_repeat("⭐", $review->rating)?>
+            </div>
+        <?php endforeach; ?>
+    </div>
     <div class="border border-zinc-700 rounded p-4 max-w-md mb-4">
         <h3 class="text-lg font-bold">Review</h3>
         <?php if (auth()): ?>
