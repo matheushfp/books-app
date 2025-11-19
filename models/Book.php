@@ -7,4 +7,5 @@ class Book
     public string $description;
     public string $author;
     public int $year;
+    public int $userId;
 }

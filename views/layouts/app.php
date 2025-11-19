@@ -12,7 +12,9 @@
             <span class="text-2xl font-bold tracking-wide">Book Wise</span>
             <ul class="flex gap-x-4 font-semibold">
                 <li><a href="/">Explore</a></li>
-                <li><a href="/my-books" class="hover:underline">My Books</a></li>
+                <?php if (auth()): ?>
+                    <li><a href="/my-books" class="hover:underline">My Books</a></li>
+                <?php endif; ?>
             </ul>
             <ul class="flex">
                 <?php if (!auth()): ?>
