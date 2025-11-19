@@ -8,4 +8,6 @@ class Book
     public string $author;
     public int $year;
     public int $userId;
+    public ?int $avgRating = null;
+    public int $reviewsCount = 0;
 }

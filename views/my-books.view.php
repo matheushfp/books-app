@@ -2,20 +2,9 @@
     <h1 class="text-xl font-bold">My Books</h1>
     <div class="grid grid-cols-4 gap-4 mt-4">
         <div class="flex flex-col col-span-3 gap-4">
-            <?php foreach ($books as $book): ?>
-                <div class="p-2 rounded-md bg-zinc-800 border-2 border-zinc-900">
-                    <div class="flex">
-                        <img src="#" alt="Image" class="w-1/3" />
-                        <div class="space-y-1">
-                            <a href="/book?id=<?=$book->id?>" class="font-semibold hover:underline">
-                                <?=$book->title?>
-                            </a>
-                            <p class="text-sm"><?=$book->author?></p>
-                        </div>
-                    </div>
-                    <p class="text-sm mt-2"><?=$book->description?></p>
-                </div>
-            <?php endforeach; ?>
+            <?php foreach ($books as $book) {
+                require('partials/_book.php');
+            } ?>
         </div>
 
         <div>

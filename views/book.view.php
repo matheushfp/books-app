@@ -1,28 +1,4 @@
-<?php
-    $avgRating = count($reviews) > 0
-        ? array_reduce($reviews, fn($acc, $review) => $acc + $review->rating, 0) / count($reviews)
-        : 0;
-
-    $displayStars = str_repeat("⭐", floor($avgRating));
-?>
-
-<div class="p-2 rounded-md bg-zinc-800 border-2 border-zinc-900">
-    <div class="flex">
-        <img src="#" alt="Image" class="w-1/3" />
-        <div class="space-y-1">
-            <a href="/book?id=<?=$book->id?>" class="font-semibold hover:underline">
-                <?=$book->title?>
-            </a>
-            <p class="text-sm"><?=$book->author?></p>
-            <?php if ($displayStars > 0): ?>
-                <p class="text-xs"><?=$displayStars . ' Rating (' . count($reviews) . ' reviews)' ?></p>
-            <?php else: ?>
-                <p class="text-xs">No Reviews yet</p>
-            <?php endif; ?>
-        </div>
-    </div>
-    <p class="text-sm mt-2"><?=$book->description?></p>
-</div>
+<?php require_once('partials/_book.php') ?>
 
 <h2 class="font-semibold text-xl">Reviews</h2>
 <div class="grid grid-cols-4 gap-4">

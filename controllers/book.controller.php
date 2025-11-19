@@ -4,7 +4,13 @@ $id = $_REQUEST['id'];
 
 $conn = Database::getInstance()->getConnection();
 
-$stmt= $conn->prepare("SELECT * FROM books where id = :id");
+$stmt= $conn->prepare("
+    SELECT b.*, b.user_id AS userId, round(avg(r.rating)) AS avgRating, count(r.rating) AS reviewsCount
+    FROM books b
+    LEFT JOIN reviews r on b.id = r.book_id
+    WHERE b.id = :id
+    GROUP BY b.id
+");
 $stmt->setFetchMode(PDO::FETCH_CLASS, Book::class);
 $stmt->execute(['id' => $id]);
 
