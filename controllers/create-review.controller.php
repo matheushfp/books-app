@@ -26,20 +26,15 @@ if ($validation->fails()) {
     exit;
 }
 
-$conn = Database::getInstance()->getConnection();
-
-$stmt = $conn->prepare("
-            INSERT INTO reviews (review_text, rating, user_id, book_id) 
-            VALUES (:review_text, :rating, :user_id, :book_id)
-");
-$stmt->execute([
+$reviewRepository = ReviewRepository::getInstance();
+$isReviewCreated = $reviewRepository->create([
     'review_text' => $data['review_text'],
     'rating' => $data['rating'],
     'user_id' => $userId,
     'book_id' => $bookId
 ]);
 
-if ($stmt->rowCount() <= 0) {
+if (!$isReviewCreated) {
     $_SESSION['errors'] = "Something went wrong, please try again later.";
     header('Location: /book?id=' . $bookId);
     exit;

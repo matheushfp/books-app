@@ -14,12 +14,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    $conn = Database::getInstance()->getConnection();
-    $stmt = $conn->prepare('SELECT id, name, email, password_hash AS passwordHash FROM users WHERE email = :email');
-    $stmt->setFetchMode(PDO::FETCH_CLASS, User::class);
-    $stmt->execute(['email' => $data['email']]);
-
-    $user = $stmt->fetch();
+    $userRepository = UserRepository::getInstance();
+    $user = $userRepository->findByEmail($data['email']);
 
     if ($user) {
 

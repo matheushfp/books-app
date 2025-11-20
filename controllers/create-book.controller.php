@@ -29,21 +29,16 @@ if ($validation->fails()) {
     exit;
 }
 
-$conn = Database::getInstance()->getConnection();
-
-$stmt = $conn->prepare("
-    INSERT INTO books (title, description, author, year, user_id) 
-    VALUES (:title, :description, :author, :year, :userId)
-");
-$stmt->execute([
+$bookRepository = BookRepository::getInstance();
+$isBookCreated = $bookRepository->create([
     'title' => $title,
     'description' => $description,
     'author' => $author,
     'year' => $year,
-    'userId' => $userId,
+    'user_id' => $userId,
 ]);
 
-if ($stmt->rowCount() <= 0) {
+if (!$isBookCreated) {
     $_SESSION['errors'] = "Something went wrong, please try again later.";
     header('Location: /my-books');
     exit;

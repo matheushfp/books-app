@@ -15,15 +15,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         exit;
     }
 
-    $conn = Database::getInstance()->getConnection();
-    $stmt = $conn->prepare("INSERT INTO users (name, email, password_hash) VALUES (:name, :email, :password_hash)");
-    $stmt->execute([
+    $userRepository = UserRepository::getInstance();
+    $isUserCreated = $userRepository->create([
         'name' => $data['name'],
         'email' => $data['email'],
         'password_hash' => password_hash($data['password'], PASSWORD_ARGON2ID)
     ]);
 
-    if ($stmt->rowCount() <= 0) {
+    if (!$isUserCreated) {
         $_SESSION['errors'] = "Something went wrong, please try again later.";
         header('location: sign-up');
         exit;

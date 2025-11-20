@@ -4,6 +4,11 @@ require 'models/Book.php';
 require 'models/User.php';
 require 'models/Review.php';
 
+require 'repositories/Repository.php';
+require 'repositories/BookRepository.php';
+require 'repositories/ReviewRepository.php';
+require 'repositories/UserRepository.php';
+
 session_start();
 
 require 'functions.php';
