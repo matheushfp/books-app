@@ -30,7 +30,7 @@
     </header>
 
     <main class="mx-auto max-w-screen-xl px-10 py-2 space-y-6">
-        <?php require "views/{$viewPath}.view.php"; ?>
+        <?php require "../views/{$viewPath}.view.php"; ?>
     </main>
 </body>
 </html>

@@ -1,2 +1,4 @@
 .idea/
 .env
+public/images/*
+!public/images/default_cover.jpg

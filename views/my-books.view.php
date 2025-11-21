@@ -10,7 +10,7 @@
         <div>
             <div class="border border-zinc-700 rounded">
                 <h1 class="border-b border-zinc-700 text-zinc-400 font-bold px-4 py-2">Register a new book</h1>
-                <form class="p-4 space-y-4" method="POST" action="/create-book">
+                <form class="p-4 space-y-4" method="POST" action="/create-book" enctype="multipart/form-data">
                     <div class="flex flex-col">
                         <label for="title" class="text-stone-400 mb-1">Title</label>
                         <input
@@ -57,6 +57,17 @@
                             inputmode="numeric"
                             class="border-stone-800 border-2 rounded-md bg-stone-900 text-sm focus:outline-none px-2 py-1 w-full"
                             value="<?= htmlspecialchars($data['year'] ?? '') ?>"
+                        />
+                    </div>
+
+                    <div class="flex flex-col">
+                        <label for="cover" class="text-stone-400 mb-1">Cover</label>
+                        <input
+                            type="file"
+                            name="cover"
+                            id="cover"
+                            accept="image/jpeg, image/png"
+                            class="border-stone-800 border-2 rounded-md bg-stone-900 text-sm focus:outline-none px-2 py-1 w-full"
                         />
                     </div>
 

@@ -1,7 +1,9 @@
 <div class="p-2 rounded-md bg-zinc-800 border-2 border-zinc-900">
     <div class="flex">
-        <img src="#" alt="Image" class="w-1/3"/>
-        <div class="space-y-1">
+        <div class="flex-shrink-0">
+            <img src="<?= $book->cover ?>" alt="Image" class="w-20 rounded-md"/>
+        </div>
+        <div class="flex flex-col gap-1 ml-4">
             <a href="/book?id=<?= $book->id ?>" class="font-semibold hover:underline">
                 <?= $book->title ?>
             </a>
@@ -15,5 +17,5 @@
             <?php endif; ?>
         </div>
     </div>
-    <p class="text-sm mt-2"><?= $book->description ?></p>
+    <p class="text-sm mt-4 leading-relaxed"><?= $book->description ?></p>
 </div>

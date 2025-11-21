@@ -69,8 +69,8 @@ class BookRepository extends Repository
     function create(array $data): bool
     {
         $stmt = $this->connection->prepare("
-            INSERT INTO books (title, description, author, year, user_id) 
-            VALUES (:title, :description, :author, :year, :user_id)
+            INSERT INTO books (title, description, author, year, user_id, cover) 
+            VALUES (:title, :description, :author, :year, :user_id, :cover)
         ");
 
         $stmt->execute([
@@ -79,6 +79,7 @@ class BookRepository extends Repository
             'author' => $data['author'],
             'year' => $data['year'],
             'user_id' => $data['user_id'],
+            'cover' => $data['cover']
         ]);
 
         return $stmt->rowCount() > 0;

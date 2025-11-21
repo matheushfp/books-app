@@ -10,4 +10,5 @@ class Book
     public int $userId;
     public ?int $avgRating = null;
     public int $reviewsCount = 0;
+    public string $cover;
 }

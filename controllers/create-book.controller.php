@@ -29,6 +29,32 @@ if ($validation->fails()) {
     exit;
 }
 
+$imagesDir = 'images/';
+$defaultCover = 'images/default_cover.jpg';
+
+$file = $defaultCover;
+if (isset($_FILES['cover']) && $_FILES['cover']['error'] === 0) {
+    $bookCover = $_FILES['cover']['name'];
+    $extension = strtolower(pathinfo($bookCover, PATHINFO_EXTENSION));
+
+    $allowedExtensions = ['jpg', 'jpeg', 'png'];
+    if (!in_array($extension, $allowedExtensions)) {
+        $_SESSION['errors'][] = "Invalid image format. Only JPG and PNG are allowed.";
+        header('Location: /my-books');
+        exit;
+    }
+
+    try {
+        $newFileName = bin2hex(random_bytes(16));
+    } catch (Exception $e) {
+        error_log($e->getMessage());
+        exit;
+    }
+
+    $file = $imagesDir . $newFileName . '.' . $extension;
+    move_uploaded_file($_FILES['cover']['tmp_name'], $file);
+}
+
 $bookRepository = BookRepository::getInstance();
 $isBookCreated = $bookRepository->create([
     'title' => $title,
@@ -36,6 +62,7 @@ $isBookCreated = $bookRepository->create([
     'author' => $author,
     'year' => $year,
     'user_id' => $userId,
+    'cover' => $file
 ]);
 
 if (!$isBookCreated) {
