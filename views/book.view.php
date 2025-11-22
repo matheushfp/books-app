@@ -1,4 +1,4 @@
-<div class="flex flex-col lg:flex-row justify-between gap-4 lg:gap-12">
+<div class="flex flex-col lg:flex-row justify-between gap-4">
     <div class="w-full">
         <?php require_once('partials/_book.php') ?>
 
@@ -22,9 +22,9 @@
     </div>
 
         <?php if (auth()): ?>
-            <div class="border border-zinc-700 rounded p-4 max-w-md mb-4 h-fit">
-                <h3 class="text-lg font-bold">Review</h3>
-                <form class="mt-3" method="post" action="create-review">
+            <div class="border border-zinc-700 text-zinc-300 rounded max-w-md p-4 mb-4 h-fit">
+                <h3 class="border-b border-zinc-700 text-zinc-300 font-bold px-4 pb-1 -ml-4 -mt-3 -mr-4">Review</h3>
+                <form class="mt-3" method="post" action="/create-review">
                     <div class="flex flex-col gap-2 max-w-md">
                         <label for="review_text" class="ml-1">Your Review</label>
                         <textarea
@@ -32,7 +32,7 @@
                                 name="review_text"
                                 id="review_text"
                                 placeholder="Write your impressions about this book..."
-                                class="bg-zinc-800 border-2 border-zinc-900 rounded-md p-2 text-sm outline-none mb-4"
+                                class="bg-zinc-800 border-2 border-zinc-900 text-zinc-300 rounded-md p-2 text-sm outline-none mb-4"
                         ></textarea>
 
                         <label for="rating" class="ml-1">Rating</label>
@@ -40,7 +40,7 @@
                                 required
                                 name="rating"
                                 id="rating"
-                                class="bg-zinc-800 border-2 border-zinc-900 rounded-md p-2 text-sm outline-none"
+                                class="bg-zinc-800 border-2 border-zinc-900 text-zinc-300 rounded-md p-2 text-sm outline-none"
                         >
                             <option value="" disabled selected>Your Rating</option>
                             <option value="1">1</option>
@@ -53,7 +53,7 @@
                     </div>
                     <button
                             type="submit"
-                            class="border border-zinc-900 bg-zinc-800 rounded-md px-4 py-1 mt-6 hover:bg-zinc-700 cursor-pointer">
+                            class="border border-zinc-900 bg-zinc-800 text-zinc-300 rounded-md px-4 py-1 mt-6 hover:bg-zinc-700 cursor-pointer">
                         Send
                     </button>
 

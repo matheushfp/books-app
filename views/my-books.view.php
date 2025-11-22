@@ -9,44 +9,44 @@
 
         <div>
             <div class="border border-zinc-700 rounded">
-                <h1 class="border-b border-zinc-700 text-zinc-400 font-bold px-4 py-2">Register a new book</h1>
+                <h1 class="border-b border-zinc-700 text-zinc-300 font-bold px-4 py-2">Register a new book</h1>
                 <form class="p-4 space-y-4" method="POST" action="/create-book" enctype="multipart/form-data">
                     <div class="flex flex-col">
-                        <label for="title" class="text-stone-400 mb-1">Title</label>
+                        <label for="title" class="text-zinc-300 mb-1">Title</label>
                         <input
                             type="text"
                             name="title"
                             id="title"
                             placeholder="Title"
-                            class="border-stone-800 border-2 rounded-md bg-stone-900 text-sm focus:outline-none px-2 py-1 w-full focus:border-sky-500"
+                            class="border-zinc-800 border-2 rounded-md bg-zinc-900 text-sm focus:outline-none px-2 py-1 w-full focus:border-sky-500"
                             value="<?= htmlspecialchars($data['title'] ?? '') ?>"
                         />
                     </div>
 
                     <div class="flex flex-col">
-                        <label for="author" class="text-stone-400 mb-1">Author</label>
+                        <label for="author" class="text-zinc-300 mb-1">Author</label>
                         <input
                             type="text"
                             name="author"
                             id="author"
                             placeholder="Author"
-                            class="border-stone-800 border-2 rounded-md bg-stone-900 text-sm focus:outline-none px-2 py-1 w-full focus:border-sky-500"
+                            class="border-zinc-800 border-2 rounded-md bg-zinc-900 text-sm focus:outline-none px-2 py-1 w-full focus:border-sky-500"
                             value="<?= htmlspecialchars($data['author'] ?? '') ?>"
                         />
                     </div>
 
                     <div class="flex flex-col">
-                        <label for="description" class="text-stone-400 mb-1">Description</label>
+                        <label for="description" class="text-zinc-300 mb-1">Description</label>
                         <textarea
                             name="description"
                             id="description"
                             placeholder="Description"
-                            class="border-stone-800 border-2 rounded-md bg-stone-900 text-sm focus:outline-none px-2 py-1 w-full focus:border-sky-500"
+                            class="border-zinc-800 border-2 rounded-md bg-zinc-900 text-sm focus:outline-none px-2 py-1 w-full focus:border-sky-500"
                         ><?= htmlspecialchars($data['description'] ?? '') ?></textarea>
                     </div>
 
                     <div class="flex flex-col">
-                        <label for="year" class="text-stone-400 mb-1">Release Year</label>
+                        <label for="year" class="text-zinc-300 mb-1">Release Year</label>
                         <input
                             type="number"
                             name="year"
@@ -55,25 +55,25 @@
                             max="<?=date('Y')?>"
                             placeholder="Year"
                             inputmode="numeric"
-                            class="border-stone-800 border-2 rounded-md bg-stone-900 text-sm focus:outline-none px-2 py-1 w-full focus:border-sky-500"
+                            class="border-zinc-800 border-2 rounded-md bg-zinc-900 text-sm focus:outline-none px-2 py-1 w-full focus:border-sky-500"
                             value="<?= htmlspecialchars($data['year'] ?? '') ?>"
                         />
                     </div>
 
                     <div class="flex flex-col">
-                        <label for="cover" class="text-stone-400 mb-1">Cover</label>
+                        <label for="cover" class="text-zinc-300 mb-1">Cover</label>
                         <input
                             type="file"
                             name="cover"
                             id="cover"
                             accept="image/jpeg, image/png"
-                            class="border-stone-800 border-2 rounded-md bg-stone-900 text-sm focus:outline-none px-2 py-1 w-full focus:border-sky-500"
+                            class="border-zinc-800 border-2 rounded-md bg-zinc-900 text-sm focus:outline-none px-2 py-1 w-full focus:border-sky-500"
                         />
                     </div>
 
                     <button
                         type="submit"
-                        class="border-stone-800 bg-stone-900 text-stone-400 px-4 py-1 rounded-md border-2 hover:bg-stone-700 cursor-pointer"
+                        class="border-zinc-800 bg-zinc-900 text-zinc-300 px-4 py-1 rounded-md border-2 hover:bg-zinc-700 cursor-pointer"
                     >
                         Save
                     </button>
