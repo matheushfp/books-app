@@ -1,7 +1,7 @@
 <div class="p-2 rounded-md bg-zinc-800 border-2 border-zinc-900">
     <div class="flex">
         <div class="flex-shrink-0">
-            <img src="<?= $book->cover ?>" alt="Image" class="w-20 rounded-md"/>
+            <a href="/book?id=<?= $book->id ?>"><img src="<?= $book->cover ?>" alt="Image" class="w-20 h-30 rounded-md"/></a>
         </div>
         <div class="flex flex-col gap-1 ml-4">
             <a href="/book?id=<?= $book->id ?>" class="font-semibold hover:underline">

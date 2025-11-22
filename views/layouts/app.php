@@ -9,7 +9,7 @@
 <body class="bg-zinc-900 text-zinc-100">
     <header class="bg-zinc-800">
         <nav class="flex mx-auto max-w-screen-xl justify-between px-10 py-5">
-            <span class="text-2xl font-bold tracking-wide">Book Wise</span>
+            <a href="/"><span class="text-2xl font-bold tracking-wide">Book Wise</span></a>
             <ul class="flex gap-x-4 font-semibold">
                 <li><a href="/">Explore</a></li>
                 <?php if (auth()): ?>

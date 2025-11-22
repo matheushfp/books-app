@@ -9,7 +9,7 @@
                     name="email"
                     id="email"
                     placeholder="Your e-mail"
-                    class="bg-zinc-800 border-2 border-zinc-900 rounded-md p-2 text-sm outline-none mb-4"
+                    class="bg-zinc-800 border-2 border-zinc-900 rounded-md p-2 text-sm outline-none mb-4 focus:border-sky-500"
                     value="<?= htmlspecialchars($data['email'] ?? '') ?>"
                 />
 
@@ -19,7 +19,7 @@
                     name="password"
                     id="password"
                     placeholder="Your Password"
-                    class="bg-zinc-800 border-2 border-zinc-900 rounded-md p-2 text-sm outline-none"
+                    class="bg-zinc-800 border-2 border-zinc-900 rounded-md p-2 text-sm outline-none focus:border-sky-500"
                     value="<?= htmlspecialchars($data['password'] ?? '') ?>"
                 />
             </div>

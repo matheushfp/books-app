@@ -12,6 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($validation->fails()) {
         $_SESSION['errors'] = $validation->errors;
         view('sign-up', ['data' => $data]);
+        unset($_SESSION['errors']);
         exit;
     }
 
@@ -25,6 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (!$isUserCreated) {
         $_SESSION['errors'] = "Something went wrong, please try again later.";
         header('location: sign-up');
+        unset($_SESSION['errors']);
         exit;
     }
 

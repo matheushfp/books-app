@@ -18,7 +18,7 @@
                             name="title"
                             id="title"
                             placeholder="Title"
-                            class="border-stone-800 border-2 rounded-md bg-stone-900 text-sm focus:outline-none px-2 py-1 w-full"
+                            class="border-stone-800 border-2 rounded-md bg-stone-900 text-sm focus:outline-none px-2 py-1 w-full focus:border-sky-500"
                             value="<?= htmlspecialchars($data['title'] ?? '') ?>"
                         />
                     </div>
@@ -30,7 +30,7 @@
                             name="author"
                             id="author"
                             placeholder="Author"
-                            class="border-stone-800 border-2 rounded-md bg-stone-900 text-sm focus:outline-none px-2 py-1 w-full"
+                            class="border-stone-800 border-2 rounded-md bg-stone-900 text-sm focus:outline-none px-2 py-1 w-full focus:border-sky-500"
                             value="<?= htmlspecialchars($data['author'] ?? '') ?>"
                         />
                     </div>
@@ -41,7 +41,7 @@
                             name="description"
                             id="description"
                             placeholder="Description"
-                            class="border-stone-800 border-2 rounded-md bg-stone-900 text-sm focus:outline-none px-2 py-1 w-full"
+                            class="border-stone-800 border-2 rounded-md bg-stone-900 text-sm focus:outline-none px-2 py-1 w-full focus:border-sky-500"
                         ><?= htmlspecialchars($data['description'] ?? '') ?></textarea>
                     </div>
 
@@ -55,7 +55,7 @@
                             max="<?=date('Y')?>"
                             placeholder="Year"
                             inputmode="numeric"
-                            class="border-stone-800 border-2 rounded-md bg-stone-900 text-sm focus:outline-none px-2 py-1 w-full"
+                            class="border-stone-800 border-2 rounded-md bg-stone-900 text-sm focus:outline-none px-2 py-1 w-full focus:border-sky-500"
                             value="<?= htmlspecialchars($data['year'] ?? '') ?>"
                         />
                     </div>
@@ -67,13 +67,13 @@
                             name="cover"
                             id="cover"
                             accept="image/jpeg, image/png"
-                            class="border-stone-800 border-2 rounded-md bg-stone-900 text-sm focus:outline-none px-2 py-1 w-full"
+                            class="border-stone-800 border-2 rounded-md bg-stone-900 text-sm focus:outline-none px-2 py-1 w-full focus:border-sky-500"
                         />
                     </div>
 
                     <button
                         type="submit"
-                        class="border-stone-800 bg-stone-900 text-stone-400 px-4 py-1 rounded-md border-2 hover:bg-stone-700"
+                        class="border-stone-800 bg-stone-900 text-stone-400 px-4 py-1 rounded-md border-2 hover:bg-stone-700 cursor-pointer"
                     >
                         Save
                     </button>
